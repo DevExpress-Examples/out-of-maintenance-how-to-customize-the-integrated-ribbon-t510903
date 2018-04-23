@@ -1,0 +1,39 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:IntegratedRibbonCustomization"
+        xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit" 
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    x:Class="IntegratedRibbonCustomization.MainWindow"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+	<!--region #RichEditControlXaml-->
+        <dxre:RichEditControl  Name="richEditControl1" CommandBarStyle="Ribbon" DocumentSource="{DXBinding '$local:SourceHelper.GetDocumentSource()'}">
+            <dxre:RichEditControl.RibbonActions>
+                <dxb:RemoveAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_Review}"/>
+                <dxb:RemoveAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonGroup_PageLayout_PageBackground}"/>
+                <dxb:RemoveAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonItem_File_Info_DocumentProperties}"/>
+                <dxb:RemoveAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_Review}"/>
+                <dxb:RemoveAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_MailMerge}"/>
+                <dxb:UpdateAction ElementName="{x:Static dxre:DefaultBarItemNames.RibbonPage_View}" PropertyName="IsSelected"  Value="True"/>
+                <dxb:InsertAction Index="2" ContainerName="{x:Static dxre:DefaultBarItemNames.RibbonPage_View}">
+                    <dxr:RibbonPageGroup Caption="Demo">
+                        <dxb:BarButtonItem Content="About"
+                                           LargeGlyph="{dx:DXImageOffice2013 Image=Info_32x32.png}"
+                                           ItemClick="About_ItemClick"/>
+                    </dxr:RibbonPageGroup>
+                </dxb:InsertAction>
+                <dxb:InsertAction Index="7" ContainerName="{x:Static dxre:DefaultBarItemNames.RibbonPage_Insert}">
+                    <dxr:RibbonPageGroup Caption="Comments">
+                        <dxb:BarButtonItem Content="Comment"
+                                           LargeGlyph="{dx:DXImage Image=NewComment_32x32.png}"
+                                           Command="{Binding RelativeSource={RelativeSource Self}, Path=(dxre:RichEditControl.RichEdit).CommandProvider.NewComment}"/>
+                    </dxr:RibbonPageGroup>
+                </dxb:InsertAction>
+            </dxre:RichEditControl.RibbonActions>
+        </dxre:RichEditControl>
+	<!--endregion #RichEditControlXaml-->
+    </Grid>
+</Window>
