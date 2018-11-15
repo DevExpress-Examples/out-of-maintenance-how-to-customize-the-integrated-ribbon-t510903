@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainWindow.xaml](./CS/IntegratedRibbonCustomization/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/IntegratedRibbonCustomization/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/IntegratedRibbonCustomization/MainWindow.xaml.cs) (VB: [MainWindow.xaml](./VB/IntegratedRibbonCustomization/MainWindow.xaml))
+* [SourceHelper.cs](./CS/IntegratedRibbonCustomization/SourceHelper.cs) (VB: [SourceHelper.vb](./VB/IntegratedRibbonCustomization/SourceHelper.vb))
+<!-- default file list end -->
 # How to customize the integrated Ribbon 
 
 
